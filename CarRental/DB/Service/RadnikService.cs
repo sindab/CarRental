@@ -35,6 +35,8 @@ namespace CarRental.DB.Service
 
         //public IEnumerable<vOsoba> GetAllV()
         //{
+
+
         //    return _db.GetAll<vOsoba>();
         //}
 
