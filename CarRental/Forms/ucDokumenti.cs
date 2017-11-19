@@ -14,7 +14,7 @@ using CarRental.DB.Models;
 using CarRental.DB.Service;
 using Microsoft.Win32;
 
-namespace CarRental
+namespace CarRental.Forms
 {
     public partial class ucDokumenti : DevExpress.XtraEditors.XtraUserControl
     {
@@ -36,10 +36,13 @@ namespace CarRental
 
                 LoadData(0);
 
-                MjestoService ms = new MjestoService();
-                IEnumerable<Mjesto> mj = ms.GetAll();
-                lkpMjestoRodjenja.DataSource = mj.ToList();
-                lkpMjestoStan.DataSource = mj.ToList();
+                OsobaService os = new OsobaService();
+                List<Lookups> osobe = os.GetLookup();
+                lkpOsoba.DataSource = osobe;
+                lkpDrugaOsoba.DataSource = osobe;
+                //VoziloService vs = new VoziloService();
+                //IEnumerable<Vozilo> vozila = vs.GetAll();
+                //lkpVozilo.DataSource = vozila.ToList();
             }
         }
 
@@ -100,7 +103,7 @@ namespace CarRental
 
         private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (TrenutniRenta.ID > 0)
+            if ((!(TrenutniRenta == null)) && (TrenutniRenta.ID > 0))
             {
                 frmDokumentEdit fK = new frmDokumentEdit();
                 fK.Renta = TrenutniRenta; 
@@ -110,31 +113,8 @@ namespace CarRental
 
         private void bbiNew_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Renta newR = new Renta()
-            {
-                //AdresaStan = string.Empty,
-                ////Bitovi = 0,
-                //BrLK = string.Empty,
-                ////BrRadneKnj = string.Empty,
-                ////DjevPrezime = string.Empty,
-                //eMail = string.Empty,
-                ////Funkcija = string.Empty,
-                //Ime = string.Empty,
-                ////ImeOca = string.Empty,
-                //JMBG = string.Empty,
-                ////LicniBrOsiguranja = string.Empty,
-                //Napomena = string.Empty,
-                //Pol = "Muški",
-                //Prezime = string.Empty,
-                //TelefonMob = string.Empty,
-                //TelefonPosao = string.Empty,
-                //TelefonStan = string.Empty,
-                ////Titula = string.Empty,
-                ////Zanimanje = string.Empty,
-                ////ZavrsenaSkola = string.Empty
-            };
             frmDokumentEdit fK = new frmDokumentEdit();
-            fK.Renta = newR;
+            fK.Renta = rs.VratiNovuRentu();
             fK.ShowDialog();
         }
 

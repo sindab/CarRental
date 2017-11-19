@@ -106,7 +106,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Maroon;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
@@ -118,7 +118,7 @@
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(326, 46);
             this.labelControl3.TabIndex = 0;
-            this.labelControl3.Text = "Kadrovska evidencija";
+            this.labelControl3.Text = "Evidencija iznajmljenih vozila";
             // 
             // frmLogin
             // 

@@ -25,22 +25,93 @@ namespace CarRental.DB.Service
             return _db.Get<Renta>(Id);
         }
 
-        public void CreateOrUpdate(Renta Renta)
+        public Renta VratiNovuRentu()
         {
-            if (GetByID(Renta.ID) is null)
+            Renta newR = new Renta()
             {
-                _db.Insert<Renta>(Renta);
-            }
-            else
-            {
-                _db.Update<Renta>(Renta);
-            }
+                Broj = NextBroj(),
+                Datum = DateTime.Today,
+                DatumOd = DateTime.Today,
+                DatumDo = DateTime.Today,
+                StanjeBrojilaStart = 0,
+                StanjeBrojilaKraj = 0,
+                StanjeGorivoStart = 0,
+                StanjeGorivoKraj = 0,
+                Cijena = 0,
+                DanaZaRacun = 0,
+                Depozit = 0,
+                IsProduzen = false,
+                IsRazduzen = false,
+                IsZaduzen = false,
+                Iznos = 0,
+                Naplata = 0,
+                OpisRazduzen = string.Empty,
+                OpisZaduzen = string.Empty,
+                PDV = 0,
+                Rabat = 0
+            };
+            return newR;
         }
 
-        public void Create(Renta Renta)
+        public int NextBroj()
         {
-            _db.Insert<Renta>(Renta);
+            int result = 1;
+            result = (int)_db.ExecuteScalar("SELECT MAX([Broj]) + 1 FROM (SELECT 0 Broj UNION ALL SELECT [Broj] FROM [Renta]) R");
+            return result;
         }
+
+        public int StanjeBrojilaMax(int voziloId)
+        {
+            int result = 0;
+            result = (int)_db.ExecuteScalar("SELECT MAX([Broj]) FROM (SELECT 0 Broj UNION ALL SELECT StanjeBrojilaKraj FROM [Renta] WHERE VoziloID = @vId) R", new { vId = voziloId });
+            return result;
+        }
+
+        public int StanjeGorivaMax(int voziloId)
+        {
+            int result = 0;
+            result = (int)_db.ExecuteScalar("SELECT MAX([Broj]) FROM (SELECT 0 Broj UNION ALL SELECT StanjeGorivoKraj FROM [Renta] WHERE VoziloID = @vId) R", new { vId = voziloId });
+            return result;
+        }
+
+        //public void CreateOrUpdate(Renta Renta)
+        //{
+        //    if (GetByID(Renta.ID) is null)
+        //    {
+        //        _db.Insert<Renta>(Renta);
+        //    }
+        //    else
+        //    {
+        //        _db.Update<Renta>(Renta);
+        //    }
+        //}
+
+        public int CreateOrUpdate(Renta renta)
+        {
+            int result = renta.ID;
+            if (!(string.IsNullOrEmpty(renta.OsobaID.ToString())) && !(string.IsNullOrEmpty(renta.VoziloID.ToString())))
+            {
+                if (renta.ID == 0 || GetByID(renta.ID) is null)
+                {
+                    result = Create(renta);
+                }
+                else
+                {
+                    Update(renta);
+                }
+            }
+            return result;
+        }
+
+        public int Create(Renta renta)
+        {
+            return (int)_db.Insert<Renta>(renta);
+        }
+
+        //public void Create(Renta Renta)
+        //{
+        //    _db.Insert<Renta>(Renta);
+        //}
 
         public void Update(Renta Renta)
         {

@@ -182,7 +182,7 @@
             this.ribbonPageGroup2});
             this.ribbonPage1.MergeOrder = 0;
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Opštine";
+            this.ribbonPage1.Text = "Spisak opština";
             // 
             // ribbonPageGroup1
             // 

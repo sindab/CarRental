@@ -1,4 +1,6 @@
-﻿namespace CarRental
+﻿using CarRental.Forms;
+
+namespace CarRental
 {
     partial class frmMain
     {
@@ -52,15 +54,15 @@
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.employeesNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.ucRadnici1 = new CarRental.ucKupci();
+            this.ucRadnici1 = new CarRental.Forms.ucKupci();
             this.employeesLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.employeeNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.customersLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.sifarniciNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.ucSifarnici1 = new CarRental.ucSifarnici();
+            this.ucSifarnici1 = new CarRental.Forms.ucSifarnici();
             this.rentaNavigationPage = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.ucDokumenti1 = new CarRental.Forms.ucDokumenti();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
-            this.ucDokumenti1 = new CarRental.ucDokumenti();
+            this.ucVozila1 = new CarRental.Forms.ucVozila();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
@@ -98,7 +100,7 @@
             this.ribbonPage});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(790, 162);
+            this.ribbonControl.Size = new System.Drawing.Size(790, 143);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             // 
@@ -134,7 +136,7 @@
             // 
             // mnuRadnici
             // 
-            this.mnuRadnici.Caption = "Kupci";
+            this.mnuRadnici.Caption = "Korisnici";
             this.mnuRadnici.Id = 46;
             this.mnuRadnici.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mnuRadnici.ImageOptions.Image")));
             this.mnuRadnici.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("mnuRadnici.ImageOptions.LargeImage")));
@@ -172,7 +174,6 @@
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroupNavigation,
             this.ribbonPageGroup});
-            this.ribbonPage.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage.Image")));
             this.ribbonPage.Name = "ribbonPage";
             this.ribbonPage.Text = "CarRental";
             // 
@@ -220,12 +221,12 @@
             this.employeesNavBarGroup,
             this.vehicleNavBarGroup,
             this.navBarGroup1});
-            this.navBarControl.Location = new System.Drawing.Point(0, 162);
+            this.navBarControl.Location = new System.Drawing.Point(0, 143);
             this.navBarControl.Name = "navBarControl";
             this.navBarControl.OptionsLayout.StoreAppearance = true;
             this.navBarControl.OptionsNavPane.ExpandedWidth = 34;
             this.navBarControl.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl.Size = new System.Drawing.Size(34, 361);
+            this.navBarControl.Size = new System.Drawing.Size(34, 380);
             this.navBarControl.TabIndex = 0;
             this.navBarControl.Text = "navBarControl";
             this.navBarControl.Visible = false;
@@ -239,7 +240,7 @@
             // 
             // employeesNavBarGroup
             // 
-            this.employeesNavBarGroup.Caption = "Kupci";
+            this.employeesNavBarGroup.Caption = "Korisnici";
             this.employeesNavBarGroup.Name = "employeesNavBarGroup";
             // 
             // vehicleNavBarGroup
@@ -261,7 +262,7 @@
             this.navigationFrame.Controls.Add(this.sifarniciNavigationPage);
             this.navigationFrame.Controls.Add(this.rentaNavigationPage);
             this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationFrame.Location = new System.Drawing.Point(34, 162);
+            this.navigationFrame.Location = new System.Drawing.Point(34, 143);
             this.navigationFrame.Name = "navigationFrame";
             this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
             this.rentaNavigationPage,
@@ -270,7 +271,7 @@
             this.sifarniciNavigationPage});
             this.navigationFrame.RibbonAndBarsMergeStyle = DevExpress.XtraBars.Docking2010.Views.RibbonAndBarsMergeStyle.Always;
             this.navigationFrame.SelectedPage = this.rentaNavigationPage;
-            this.navigationFrame.Size = new System.Drawing.Size(756, 361);
+            this.navigationFrame.Size = new System.Drawing.Size(756, 380);
             this.navigationFrame.TabIndex = 0;
             this.navigationFrame.Text = "navigationFrame";
             // 
@@ -279,14 +280,14 @@
             this.employeesNavigationPage.Controls.Add(this.ucRadnici1);
             this.employeesNavigationPage.Controls.Add(this.employeesLabelControl);
             this.employeesNavigationPage.Name = "employeesNavigationPage";
-            this.employeesNavigationPage.Size = new System.Drawing.Size(756, 361);
+            this.employeesNavigationPage.Size = new System.Drawing.Size(756, 380);
             // 
             // ucRadnici1
             // 
             this.ucRadnici1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucRadnici1.Location = new System.Drawing.Point(0, 0);
             this.ucRadnici1.Name = "ucRadnici1";
-            this.ucRadnici1.Size = new System.Drawing.Size(756, 361);
+            this.ucRadnici1.Size = new System.Drawing.Size(756, 380);
             this.ucRadnici1.TabIndex = 1;
             this.ucRadnici1.TrenutniOsoba = null;
             // 
@@ -303,52 +304,44 @@
             this.employeesLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeesLabelControl.Location = new System.Drawing.Point(0, 0);
             this.employeesLabelControl.Name = "employeesLabelControl";
-            this.employeesLabelControl.Size = new System.Drawing.Size(756, 361);
+            this.employeesLabelControl.Size = new System.Drawing.Size(756, 380);
             this.employeesLabelControl.TabIndex = 0;
             this.employeesLabelControl.Text = "Employees";
             // 
             // employeeNavigationPage
             // 
-            this.employeeNavigationPage.Controls.Add(this.customersLabelControl);
+            this.employeeNavigationPage.Controls.Add(this.ucVozila1);
             this.employeeNavigationPage.Name = "employeeNavigationPage";
-            this.employeeNavigationPage.Size = new System.Drawing.Size(756, 361);
-            // 
-            // customersLabelControl
-            // 
-            this.customersLabelControl.Appearance.Font = new System.Drawing.Font("Tahoma", 25.25F);
-            this.customersLabelControl.Appearance.ForeColor = System.Drawing.Color.Gray;
-            this.customersLabelControl.Appearance.Options.UseFont = true;
-            this.customersLabelControl.Appearance.Options.UseForeColor = true;
-            this.customersLabelControl.Appearance.Options.UseTextOptions = true;
-            this.customersLabelControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.customersLabelControl.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.customersLabelControl.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.customersLabelControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customersLabelControl.Location = new System.Drawing.Point(0, 0);
-            this.customersLabelControl.Name = "customersLabelControl";
-            this.customersLabelControl.Size = new System.Drawing.Size(756, 361);
-            this.customersLabelControl.TabIndex = 1;
-            this.customersLabelControl.Text = "Vozila";
+            this.employeeNavigationPage.Size = new System.Drawing.Size(756, 380);
             // 
             // sifarniciNavigationPage
             // 
             this.sifarniciNavigationPage.Controls.Add(this.ucSifarnici1);
             this.sifarniciNavigationPage.Name = "sifarniciNavigationPage";
-            this.sifarniciNavigationPage.Size = new System.Drawing.Size(756, 361);
+            this.sifarniciNavigationPage.Size = new System.Drawing.Size(756, 380);
             // 
             // ucSifarnici1
             // 
             this.ucSifarnici1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucSifarnici1.Location = new System.Drawing.Point(0, 0);
             this.ucSifarnici1.Name = "ucSifarnici1";
-            this.ucSifarnici1.Size = new System.Drawing.Size(756, 361);
+            this.ucSifarnici1.Size = new System.Drawing.Size(756, 380);
             this.ucSifarnici1.TabIndex = 0;
             // 
             // rentaNavigationPage
             // 
             this.rentaNavigationPage.Controls.Add(this.ucDokumenti1);
             this.rentaNavigationPage.Name = "rentaNavigationPage";
-            this.rentaNavigationPage.Size = new System.Drawing.Size(756, 361);
+            this.rentaNavigationPage.Size = new System.Drawing.Size(756, 380);
+            // 
+            // ucDokumenti1
+            // 
+            this.ucDokumenti1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucDokumenti1.Location = new System.Drawing.Point(0, 0);
+            this.ucDokumenti1.Name = "ucDokumenti1";
+            this.ucDokumenti1.Size = new System.Drawing.Size(756, 380);
+            this.ucDokumenti1.TabIndex = 0;
+            this.ucDokumenti1.TrenutniRenta = null;
             // 
             // navigationPage1
             // 
@@ -356,14 +349,14 @@
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(750, 380);
             // 
-            // ucDokumenti1
+            // ucVozila1
             // 
-            this.ucDokumenti1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucDokumenti1.Location = new System.Drawing.Point(0, 0);
-            this.ucDokumenti1.Name = "ucDokumenti1";
-            this.ucDokumenti1.Size = new System.Drawing.Size(756, 361);
-            this.ucDokumenti1.TabIndex = 0;
-            this.ucDokumenti1.TrenutniRenta = null;
+            this.ucVozila1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucVozila1.Location = new System.Drawing.Point(0, 0);
+            this.ucVozila1.Name = "ucVozila1";
+            this.ucVozila1.Size = new System.Drawing.Size(756, 380);
+            this.ucVozila1.TabIndex = 0;
+            this.ucVozila1.Trenutni = null;
             // 
             // frmMain
             // 
@@ -412,7 +405,6 @@
         private DevExpress.XtraBars.Navigation.NavigationPage employeesNavigationPage;
         private DevExpress.XtraEditors.LabelControl employeesLabelControl;
         private DevExpress.XtraBars.Navigation.NavigationPage employeeNavigationPage;
-        private DevExpress.XtraEditors.LabelControl customersLabelControl;
         private DevExpress.XtraBars.BarButtonItem employeesBarButtonItem;
         private DevExpress.XtraBars.BarButtonItem customersBarButtonItem;
         private ucKupci ucRadnici1;
@@ -427,6 +419,7 @@
         private DevExpress.XtraNavBar.NavBarGroup rentaNavBarGroup;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private ucDokumenti ucDokumenti1;
+        private ucVozila ucVozila1;
         //private ucNotifikacije ucNotifikacije1;
         //private System.Windows.Forms.Timer timer1;
     }

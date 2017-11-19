@@ -1,6 +1,6 @@
 ﻿namespace CarRental.Sifarnici
 {
-    partial class ucMjesta
+    partial class ucLokacija
     {
         /// <summary>
         /// Required designer variable.
@@ -44,14 +44,14 @@
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gcID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcOpstinaID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lkpOpstine = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gcPostBr = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcMjestoID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lkpMjesta = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.gcAdresa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcNaziv = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkpOpstine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkpMjesta)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -130,7 +130,7 @@
             this.ribbonPageGroup2});
             this.ribbonPage1.MergeOrder = 0;
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Mjesta/gradovi";
+            this.ribbonPage1.Text = "Spisak lokacija";
             // 
             // ribbonPageGroup1
             // 
@@ -181,7 +181,7 @@
             this.gridControl.MenuManager = this.ribbonControl;
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.lkpOpstine});
+            this.lkpMjesta});
             this.gridControl.Size = new System.Drawing.Size(800, 457);
             this.gridControl.TabIndex = 4;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -192,8 +192,8 @@
             this.gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gcID,
-            this.gcOpstinaID,
-            this.gcPostBr,
+            this.gcMjestoID,
+            this.gcAdresa,
             this.gcNaziv});
             this.gridView.GridControl = this.gridControl;
             this.gridView.GroupCount = 1;
@@ -207,7 +207,7 @@
             this.gridView.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
             this.gridView.OptionsView.ShowGroupPanel = false;
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gcOpstinaID, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gcMjestoID, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gcID
             // 
@@ -219,34 +219,34 @@
             this.gcID.VisibleIndex = 0;
             this.gcID.Width = 80;
             // 
-            // gcOpstinaID
+            // gcMjestoID
             // 
-            this.gcOpstinaID.Caption = "Opština";
-            this.gcOpstinaID.ColumnEdit = this.lkpOpstine;
-            this.gcOpstinaID.FieldName = "OpstinaID";
-            this.gcOpstinaID.Name = "gcOpstinaID";
-            this.gcOpstinaID.Visible = true;
-            this.gcOpstinaID.VisibleIndex = 1;
-            this.gcOpstinaID.Width = 192;
+            this.gcMjestoID.Caption = "Mjesto";
+            this.gcMjestoID.ColumnEdit = this.lkpMjesta;
+            this.gcMjestoID.FieldName = "MjestoID";
+            this.gcMjestoID.Name = "gcMjestoID";
+            this.gcMjestoID.Visible = true;
+            this.gcMjestoID.VisibleIndex = 1;
+            this.gcMjestoID.Width = 192;
             // 
-            // lkpOpstine
+            // lkpMjesta
             // 
-            this.lkpOpstine.AutoHeight = false;
-            this.lkpOpstine.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lkpMjesta.AutoHeight = false;
+            this.lkpMjesta.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkpOpstine.DisplayMember = "Naziv";
-            this.lkpOpstine.KeyMember = "OpstinaID";
-            this.lkpOpstine.Name = "lkpOpstine";
-            this.lkpOpstine.ValueMember = "ID";
+            this.lkpMjesta.DisplayMember = "Naziv";
+            this.lkpMjesta.KeyMember = "OpstinaID";
+            this.lkpMjesta.Name = "lkpMjesta";
+            this.lkpMjesta.ValueMember = "ID";
             // 
-            // gcPostBr
+            // gcAdresa
             // 
-            this.gcPostBr.Caption = "Poštanski broj";
-            this.gcPostBr.FieldName = "PostBr";
-            this.gcPostBr.Name = "gcPostBr";
-            this.gcPostBr.Visible = true;
-            this.gcPostBr.VisibleIndex = 1;
-            this.gcPostBr.Width = 99;
+            this.gcAdresa.Caption = "Adresa";
+            this.gcAdresa.FieldName = "Adresa";
+            this.gcAdresa.Name = "gcAdresa";
+            this.gcAdresa.Visible = true;
+            this.gcAdresa.VisibleIndex = 1;
+            this.gcAdresa.Width = 99;
             // 
             // gcNaziv
             // 
@@ -257,19 +257,19 @@
             this.gcNaziv.VisibleIndex = 2;
             this.gcNaziv.Width = 413;
             // 
-            // ucMjesta
+            // ucLokacija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
-            this.Name = "ucMjesta";
+            this.Name = "ucLokacija";
             this.Size = new System.Drawing.Size(800, 600);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkpOpstine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkpMjesta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,9 +292,9 @@
         private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraGrid.Columns.GridColumn gcID;
-        private DevExpress.XtraGrid.Columns.GridColumn gcPostBr;
+        private DevExpress.XtraGrid.Columns.GridColumn gcAdresa;
         private DevExpress.XtraGrid.Columns.GridColumn gcNaziv;
-        private DevExpress.XtraGrid.Columns.GridColumn gcOpstinaID;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lkpOpstine;
+        private DevExpress.XtraGrid.Columns.GridColumn gcMjestoID;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lkpMjesta;
     }
 }

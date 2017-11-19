@@ -67,7 +67,6 @@
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.cbMjesto = new DevExpress.XtraEditors.LookUpEdit();
-            //this.ucPoslovneJedinice1 = new Kadrovska_sluzba.Sifarnici.ucPoslovneJedinice();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -170,7 +169,6 @@
             this.bbPJ.Id = 10;
             this.bbPJ.ImageOptions.ImageUri.Uri = "Home";
             this.bbPJ.Name = "bbPJ";
-            //this.bbPJ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbPJ_ItemClick);
             // 
             // mainRibbonPage
             // 
@@ -178,7 +176,7 @@
             this.mainRibbonPageGroup});
             this.mainRibbonPage.MergeOrder = 0;
             this.mainRibbonPage.Name = "mainRibbonPage";
-            this.mainRibbonPage.Text = "Kadrovska evidencija";
+            this.mainRibbonPage.Text = "Podaci o firmi";
             // 
             // mainRibbonPageGroup
             // 
@@ -458,14 +456,6 @@
             this.cbMjesto.Properties.ValueMember = "ID";
             this.cbMjesto.Size = new System.Drawing.Size(340, 20);
             this.cbMjesto.TabIndex = 25;
-            //// 
-            //// ucPoslovneJedinice1
-            //// 
-            //this.ucPoslovneJedinice1.Dock = System.Windows.Forms.DockStyle.Fill;
-            //this.ucPoslovneJedinice1.Location = new System.Drawing.Point(525, 116);
-            //this.ucPoslovneJedinice1.Name = "ucPoslovneJedinice1";
-            //this.ucPoslovneJedinice1.Size = new System.Drawing.Size(470, 542);
-            //this.ucPoslovneJedinice1.TabIndex = 6;
             // 
             // panelControl1
             // 
@@ -482,7 +472,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.Controls.Add(this.ucPoslovneJedinice1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.mainRibbonControl);
             this.Name = "ucFirma";

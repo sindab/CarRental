@@ -46,7 +46,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>People.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -101,23 +102,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\DbConnection.cs" />
+    <Compile Include="DB\Models\Lookups.cs" />
     <Compile Include="DB\Models\ModelGenerator1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\Service\BojaService.cs" />
     <Compile Include="DB\Service\DrzavaService.cs" />
     <Compile Include="DB\Service\FirmaService.cs" />
+    <Compile Include="DB\Service\LokacijaService.cs" />
+    <Compile Include="DB\Service\MarkaService.cs" />
     <Compile Include="DB\Service\MjestoService.cs" />
+    <Compile Include="DB\Service\OblikService.cs" />
     <Compile Include="DB\Service\OpstinaService.cs" />
-    <Compile Include="DB\Service\RadnikService.cs" />
+    <Compile Include="DB\Service\OsobaService.cs" />
     <Compile Include="DB\Service\RentaService.cs" />
     <Compile Include="DB\Service\SharedService.cs" />
-    <Compile Include="frmDokumentEdit.cs">
+    <Compile Include="DB\Service\VoziloService.cs" />
+    <Compile Include="Forms\frmDokumentEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDokumentEdit.Designer.cs">
+    <Compile Include="Forms\frmDokumentEdit.Designer.cs">
       <DependentUpon>frmDokumentEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmVoziloEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmVoziloEdit.Designer.cs">
+      <DependentUpon>frmVoziloEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucVozila.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucVozila.Designer.cs">
+      <DependentUpon>ucVozila.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -133,6 +152,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sifarnici\frmLokacijaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sifarnici\frmLokacijaEdit.Designer.cs">
+      <DependentUpon>frmLokacijaEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sifarnici\frmOblikEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sifarnici\frmOblikEdit.Designer.cs">
+      <DependentUpon>frmOblikEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sifarnici\frmBojaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sifarnici\frmBojaEdit.Designer.cs">
+      <DependentUpon>frmBojaEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sifarnici\frmMjestoEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,11 +182,35 @@
     <Compile Include="Sifarnici\frmDrzavaEdit.Designer.cs">
       <DependentUpon>frmDrzavaEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sifarnici\frmMarkaEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sifarnici\frmMarkaEdit.Designer.cs">
+      <DependentUpon>frmMarkaEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sifarnici\frmOpstinaEdit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sifarnici\frmOpstinaEdit.Designer.cs">
       <DependentUpon>frmOpstinaEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sifarnici\ucLokacija.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sifarnici\ucLokacija.Designer.cs">
+      <DependentUpon>ucLokacija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sifarnici\ucOblik.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sifarnici\ucOblik.Designer.cs">
+      <DependentUpon>ucOblik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sifarnici\ucBoja.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sifarnici\ucBoja.Designer.cs">
+      <DependentUpon>ucBoja.cs</DependentUpon>
     </Compile>
     <Compile Include="Sifarnici\ucFirma.cs">
       <SubType>UserControl</SubType>
@@ -169,38 +230,50 @@
     <Compile Include="Sifarnici\ucDrzava.Designer.cs">
       <DependentUpon>ucDrzava.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sifarnici\ucMarka.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sifarnici\ucMarka.Designer.cs">
+      <DependentUpon>ucMarka.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sifarnici\ucOpstine.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Sifarnici\ucOpstine.Designer.cs">
       <DependentUpon>ucOpstine.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucDokumenti.cs">
+    <Compile Include="Forms\ucDokumenti.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucDokumenti.Designer.cs">
+    <Compile Include="Forms\ucDokumenti.Designer.cs">
       <DependentUpon>ucDokumenti.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucKupci.cs">
+    <Compile Include="Forms\ucKupci.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucKupci.Designer.cs">
+    <Compile Include="Forms\ucKupci.Designer.cs">
       <DependentUpon>ucKupci.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmKupac.cs">
+    <Compile Include="Forms\frmKupacEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmKupac.Designer.cs">
-      <DependentUpon>frmKupac.cs</DependentUpon>
+    <Compile Include="Forms\frmKupacEdit.Designer.cs">
+      <DependentUpon>frmKupacEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucSifarnici.cs">
+    <Compile Include="Forms\ucSifarnici.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucSifarnici.Designer.cs">
+    <Compile Include="Forms\ucSifarnici.Designer.cs">
       <DependentUpon>ucSifarnici.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmDokumentEdit.resx">
+    <EmbeddedResource Include="Forms\frmDokumentEdit.resx">
       <DependentUpon>frmDokumentEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVoziloEdit.resx">
+      <DependentUpon>frmVoziloEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucVozila.resx">
+      <DependentUpon>ucVozila.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -219,14 +292,35 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sifarnici\frmLokacijaEdit.resx">
+      <DependentUpon>frmLokacijaEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sifarnici\frmOblikEdit.resx">
+      <DependentUpon>frmOblikEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sifarnici\frmBojaEdit.resx">
+      <DependentUpon>frmBojaEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sifarnici\frmMjestoEdit.resx">
       <DependentUpon>frmMjestoEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sifarnici\frmDrzavaEdit.resx">
       <DependentUpon>frmDrzavaEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sifarnici\frmMarkaEdit.resx">
+      <DependentUpon>frmMarkaEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sifarnici\frmOpstinaEdit.resx">
       <DependentUpon>frmOpstinaEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sifarnici\ucLokacija.resx">
+      <DependentUpon>ucLokacija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sifarnici\ucOblik.resx">
+      <DependentUpon>ucOblik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sifarnici\ucBoja.resx">
+      <DependentUpon>ucBoja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sifarnici\ucFirma.resx">
       <DependentUpon>ucFirma.cs</DependentUpon>
@@ -237,21 +331,25 @@
     <EmbeddedResource Include="Sifarnici\ucDrzava.resx">
       <DependentUpon>ucDrzava.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sifarnici\ucMarka.resx">
+      <DependentUpon>ucMarka.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sifarnici\ucOpstine.resx">
       <DependentUpon>ucOpstine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucDokumenti.resx">
+    <EmbeddedResource Include="Forms\ucDokumenti.resx">
       <DependentUpon>ucDokumenti.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucKupci.resx">
+    <EmbeddedResource Include="Forms\ucKupci.resx">
       <DependentUpon>ucKupci.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmKupac.resx">
-      <DependentUpon>frmKupac.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmKupacEdit.resx">
+      <DependentUpon>frmKupacEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucSifarnici.resx">
+    <EmbeddedResource Include="Forms\ucSifarnici.resx">
       <DependentUpon>ucSifarnici.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="men.png" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Kadrovska_sluzba.DB.Models.Appointment.datasource" />
     <None Include="Properties\DataSources\Kadrovska_sluzba.DB.Models.Resource.datasource" />
@@ -264,6 +362,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="women.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -271,18 +370,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="car.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="DB\Examples.txt" />
     <Content Include="DB\Models\ModelGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelGenerator1.cs</LastGenOutput>
     </Content>
-    <Content Include="People.ico" />
-    <None Include="men.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="women.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

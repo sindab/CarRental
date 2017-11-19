@@ -16,34 +16,6 @@ using System.Collections.Generic;
 namespace CarRental.DB.Models
 {
     /// <summary>
-    /// A class which represents the Renta table.
-    /// </summary>
-	[Table("Renta")]
-	public partial class Renta
-	{
-		[Key]
-		public virtual int ID { get; set; }
-		public virtual DateTime Datum { get; set; }
-		public virtual int Broj { get; set; }
-		public virtual int OsobaID { get; set; }
-		public virtual int? DrugaOsobaID { get; set; }
-		public virtual int VoziloID { get; set; }
-		public virtual int StanjeBrojilaStart { get; set; }
-		public virtual int? StanjeBrojilaKraj { get; set; }
-		public virtual int StanjeGorivoStart { get; set; }
-		public virtual int? StanjeGorivoKraj { get; set; }
-		public virtual DateTime DatumOd { get; set; }
-		public virtual DateTime DatumDo { get; set; }
-		public virtual DateTime? DatumRazduzen { get; set; }
-		public virtual bool? IsZaduzen { get; set; }
-		public virtual bool? IsRazduzen { get; set; }
-		public virtual bool? IsProduzen { get; set; }
-		public virtual DateTime? DatumProduzenDo { get; set; }
-		public virtual string OpisZaduzen { get; set; }
-		public virtual string OpisRazduzen { get; set; }
-	}
-
-    /// <summary>
     /// A class which represents the Firma table.
     /// </summary>
 	[Table("Firma")]
@@ -64,34 +36,6 @@ namespace CarRental.DB.Models
 		public virtual string Ziro { get; set; }
 		public virtual string Web { get; set; }
 		public virtual string Mail { get; set; }
-	}
-
-    /// <summary>
-    /// A class which represents the Osoba table.
-    /// </summary>
-	[Table("Osoba")]
-	public partial class Osoba
-	{
-		[Key]
-		public virtual int ID { get; set; }
-		public virtual string JMBG { get; set; }
-		public virtual string Prezime { get; set; }
-		public virtual string Ime { get; set; }
-		public virtual int? MjestoStanID { get; set; }
-		public virtual string AdresaStan { get; set; }
-		public virtual string TelefonStan { get; set; }
-		public virtual string TelefonMob { get; set; }
-		public virtual string TelefonPosao { get; set; }
-		public virtual string BrLK { get; set; }
-		public virtual string BrPasos { get; set; }
-		public virtual string BrVozacka { get; set; }
-		public virtual DateTime? DatumRodjenja { get; set; }
-		public virtual string eMail { get; set; }
-		public virtual string Pol { get; set; }
-		public virtual byte[] Slika { get; set; }
-		public virtual string UserName { get; set; }
-		public virtual string Lozinka { get; set; }
-		public virtual string Napomena { get; set; }
 	}
 
     /// <summary>
@@ -132,6 +76,78 @@ namespace CarRental.DB.Models
 	}
 
     /// <summary>
+    /// A class which represents the Lokacija table.
+    /// </summary>
+	[Table("Lokacija")]
+	public partial class Lokacija
+	{
+		[Key]
+		public virtual int ID { get; set; }
+		public virtual string Naziv { get; set; }
+		public virtual string Adresa { get; set; }
+		public virtual int MjestoID { get; set; }
+	}
+
+    /// <summary>
+    /// A class which represents the Vozilo table.
+    /// </summary>
+	[Table("Vozilo")]
+	public partial class Vozilo
+	{
+		[Key]
+		public virtual int ID { get; set; }
+		public virtual string RegBr { get; set; }
+		public virtual string Sasija { get; set; }
+		public virtual int? MarkaID { get; set; }
+		public virtual string Tip { get; set; }
+		public virtual int? BojaID { get; set; }
+		public virtual int? OblikID { get; set; }
+		public virtual int? Godina { get; set; }
+		public virtual string BrMotora { get; set; }
+		public virtual int? Snaga { get; set; }
+		public virtual int? ZapreminaMotor { get; set; }
+		public virtual string TipMotora { get; set; }
+		public virtual int? NetoTezina { get; set; }
+		public virtual int? BrojVrata { get; set; }
+		public virtual int? BrojSjedista { get; set; }
+		public virtual int? Nosivost { get; set; }
+		public virtual DateTime? DatumReg { get; set; }
+		public virtual int? ZapreminaGorivo { get; set; }
+		public virtual int? ecBit { get; set; }
+		public virtual string Napomena { get; set; }
+		public virtual decimal? Cijena { get; set; }
+		public virtual byte[] Slika { get; set; }
+	}
+
+    /// <summary>
+    /// A class which represents the Osoba table.
+    /// </summary>
+	[Table("Osoba")]
+	public partial class Osoba
+	{
+		[Key]
+		public virtual int ID { get; set; }
+		public virtual string JMBG { get; set; }
+		public virtual string Prezime { get; set; }
+		public virtual string Ime { get; set; }
+		public virtual int? MjestoStanID { get; set; }
+		public virtual string AdresaStan { get; set; }
+		public virtual string TelefonStan { get; set; }
+		public virtual string TelefonMob { get; set; }
+		public virtual string BrLK { get; set; }
+		public virtual string BrPasos { get; set; }
+		public virtual string BrVozacka { get; set; }
+		public virtual DateTime? DatumRodjenja { get; set; }
+		public virtual string eMail { get; set; }
+		public virtual string Pol { get; set; }
+		public virtual byte[] Slika { get; set; }
+		public virtual decimal? Rating { get; set; }
+		public virtual string UserName { get; set; }
+		public virtual string Lozinka { get; set; }
+		public virtual string Napomena { get; set; }
+	}
+
+    /// <summary>
     /// A class which represents the Oblik table.
     /// </summary>
 	[Table("Oblik")]
@@ -166,32 +182,43 @@ namespace CarRental.DB.Models
 	}
 
     /// <summary>
-    /// A class which represents the Vozilo table.
+    /// A class which represents the Renta table.
     /// </summary>
-	[Table("Vozilo")]
-	public partial class Vozilo
+	[Table("Renta")]
+	public partial class Renta
 	{
 		[Key]
 		public virtual int ID { get; set; }
-		public virtual string RegBr { get; set; }
-		public virtual string Sasija { get; set; }
-		public virtual int? MarkaID { get; set; }
-		public virtual string Tip { get; set; }
-		public virtual int? BojaID { get; set; }
-		public virtual int? OblikID { get; set; }
-		public virtual int? Godina { get; set; }
-		public virtual string BrMotora { get; set; }
-		public virtual string Snaga { get; set; }
-		public virtual string ZapreminaMotor { get; set; }
-		public virtual string TipMotora { get; set; }
-		public virtual int? NetoTezina { get; set; }
-		public virtual int? BrojVrata { get; set; }
-		public virtual int? BrojSjedista { get; set; }
-		public virtual string Nosivost { get; set; }
-		public virtual DateTime? DatumReg { get; set; }
-		public virtual int? ZapreminaGorivo { get; set; }
-		public virtual int? ecBit { get; set; }
-		public virtual string Napomena { get; set; }
+		public virtual DateTime Datum { get; set; }
+		public virtual int Broj { get; set; }
+		public virtual int OsobaID { get; set; }
+		public virtual int? DrugaOsobaID { get; set; }
+		public virtual int VoziloID { get; set; }
+		public virtual int StanjeBrojilaStart { get; set; }
+		public virtual int? StanjeBrojilaKraj { get; set; }
+		public virtual int StanjeGorivoStart { get; set; }
+		public virtual int? StanjeGorivoKraj { get; set; }
+		public virtual DateTime DatumOd { get; set; }
+		public virtual DateTime DatumDo { get; set; }
+		public virtual DateTime? DatumRazduzen { get; set; }
+		public virtual bool IsZaduzen { get; set; }
+		public virtual bool IsRazduzen { get; set; }
+		public virtual bool IsProduzen { get; set; }
+		public virtual DateTime? DatumProduzenDo { get; set; }
+		public virtual string OpisZaduzen { get; set; }
+		public virtual string OpisRazduzen { get; set; }
+		public virtual int? LokacijaPreuzimanje { get; set; }
+		public virtual int? LokacijaZaPovrat { get; set; }
+		public virtual int? LokacijaVraceno { get; set; }
+		public virtual int? DanaZaRacun { get; set; }
+		public virtual decimal? Depozit { get; set; }
+		public virtual decimal? Cijena { get; set; }
+		public virtual decimal? Rabat { get; set; }
+		public virtual decimal? PDV { get; set; }
+		public virtual decimal? Iznos { get; set; }
+		public virtual decimal Naplata { get; set; }
+		public virtual decimal RatingKupca { get; set; }
+		public virtual bool IsPlaceno { get; set; }
 	}
 
 }

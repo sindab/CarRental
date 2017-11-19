@@ -14,35 +14,20 @@ using CarRental.DB.Models;
 using CarRental.DB.Service;
 using Microsoft.Win32;
 
-namespace CarRental
+namespace CarRental.Forms
 {
-    public partial class ucKupci : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucVozila : DevExpress.XtraEditors.XtraUserControl
     {
-        OsobaService rs;
-        IEnumerable<Osoba> dataSource;
-        Osoba trenutni;
-        //public delegate void OsobaChangedHandler(object myObject, OsobaArgs myArgs);
-        //public event OsobaChangedHandler IzmjenaOsobaa;
-        //RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Kadrovska\frmOsobaLayout");
+        VoziloService rs;
+        IEnumerable<Vozilo> dataSource;
+        Vozilo trenutni;
 
-        public ucKupci()
+        public ucVozila()
         {
             InitializeComponent();
-            //gridView.RestoreLayoutFromXml("frmOsobaLayout.xml");
-
         }
-        //private string PathName
-        //{
-        //    get
-        //    {
-        //        //using (RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Kadrovska"))
-        //        //{
-        //            return (string)registryKey.GetValue("frmOsobaLayout");
-        //        //}
-        //    }
-        //}
 
-        private void ucRadnici_Load(object sender, EventArgs e)
+        private void ucVozila_Load(object sender, EventArgs e)
         {
             if (!this.DesignMode)
             {
@@ -51,12 +36,18 @@ namespace CarRental
 
                 LoadData(0);
 
-                //gridView1.RestoreLayoutFromRegistry("frmOsobaLayout");
-
-                MjestoService ms = new MjestoService();
-                IEnumerable<Mjesto> mj = ms.GetAll();
-                lkpMjestoRodjenja.DataSource = mj.ToList();
-                lkpMjestoStan.DataSource = mj.ToList();
+                MarkaService os = new MarkaService();
+                List<Marka> marke = os.GetLookup();
+                lkpMarka.DataSource = marke;
+                BojaService bs = new BojaService();
+                List<Boja> boje = bs.GetLookup();
+                lkpBoja.DataSource = boje;
+                OblikService obs = new OblikService();
+                List<Oblik> oblici = obs.GetLookup();
+                lkpOblik.DataSource = oblici;
+                //VoziloService vs = new VoziloService();
+                //IEnumerable<Vozilo> vozila = vs.GetAll();
+                //lkpVozilo.DataSource = vozila.ToList();
             }
         }
 
@@ -70,13 +61,13 @@ namespace CarRental
                 bsiRecordsCount.Caption = "RECORDS : " + dataSource.ToList().Count;
                 if (focusID > 0)
                 {
-                    TrenutniOsoba = dataSource.Where(x => x.ID == focusID).FirstOrDefault(); // dt.Rows.IndexOf(dt.Rows.Find(< key_value >));
-                    gridView.FocusedRowHandle = gridView.FindRow(TrenutniOsoba);
+                    Trenutni = dataSource.Where(x => x.ID == focusID).FirstOrDefault(); 
+                    gridView.FocusedRowHandle = gridView.FindRow(Trenutni);
                 }
             }
         }
 
-        public Osoba TrenutniOsoba
+        public Vozilo Trenutni
         {
             get
             {
@@ -87,33 +78,17 @@ namespace CarRental
                 trenutni = value;
             }
         }
-
-        //public class OsobaArgs : EventArgs
-        //{
-        //    private Osoba osoba;
-        //    public OsobaArgs(Osoba Osoba)
-        //    {
-        //        this.osoba = Osoba;
-        //    }
-        //    // This is a straightforward implementation for declaring a public field
-        //    public Osoba Osoba
-        //    {
-        //        get
-        //        {
-        //            return osoba;
-        //        }
-        //    }
-        //}
+                
         void bbiPrintPreview_ItemClick(object sender, ItemClickEventArgs e)
         {
             gridControl.ShowRibbonPrintPreview();
         }
-        public IEnumerable<Osoba> GetDataSource()
+        public IEnumerable<Vozilo> GetDataSource()
         {
             if (!(LicenseManager.UsageMode == LicenseUsageMode.Designtime))
             {
-                rs = new OsobaService();
-                IEnumerable<Osoba> result = rs.GetAll();
+                rs = new VoziloService();
+                IEnumerable<Vozilo> result = rs.GetAll();
                 return result;
             }
             else { return null; }
@@ -127,51 +102,47 @@ namespace CarRental
             }
             else
             {
-                trenutni = new Osoba();
+                trenutni = new Vozilo();
             }
         }
 
         private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (TrenutniOsoba.ID > 0)
+            if ((!(Trenutni == null)) && (Trenutni.ID > 0))
             {
-                //OsobaArgs myArgs = new OsobaArgs(rs.GetByID(TrenutniOsoba.ID));
-                //IzmjenaOsobaa(this, myArgs);
-                frmKupac fK=new frmKupac();
-                fK.Osoba = TrenutniOsoba; // rs.GetByID(TrenutniOsoba.ID);
+                frmVoziloEdit fK = new frmVoziloEdit();
+                fK.Vozilo = Trenutni; 
                 fK.ShowDialog();
             }
         }
 
         private void bbiNew_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Osoba newR = new Osoba()
+            Vozilo newR = new Vozilo()
             {
-                AdresaStan = string.Empty,
-                //Bitovi = 0,
-                BrLK = string.Empty,
-                //BrRadneKnj = string.Empty,
-                //DjevPrezime = string.Empty,
-                eMail = string.Empty,
-                //Funkcija = string.Empty,
-                Ime = string.Empty,
-                //ImeOca = string.Empty,
-                JMBG = string.Empty,
-                //LicniBrOsiguranja = string.Empty,
-                Napomena = string.Empty,
-                Pol = "Muški",
-                Prezime = string.Empty,
-                TelefonMob = string.Empty,
-                TelefonPosao = string.Empty,
-                TelefonStan = string.Empty,
-                //Titula = string.Empty,
-                //Zanimanje = string.Empty,
-                //ZavrsenaSkola = string.Empty
+                //AdresaStan = string.Empty,
+                ////Bitovi = 0,
+                //BrLK = string.Empty,
+                ////BrRadneKnj = string.Empty,
+                ////DjevPrezime = string.Empty,
+                //eMail = string.Empty,
+                ////Funkcija = string.Empty,
+                //Ime = string.Empty,
+                ////ImeOca = string.Empty,
+                //JMBG = string.Empty,
+                ////LicniBrOsiguranja = string.Empty,
+                //Napomena = string.Empty,
+                //Pol = "Muški",
+                //Prezime = string.Empty,
+                //TelefonMob = string.Empty,
+                //TelefonPosao = string.Empty,
+                //TelefonStan = string.Empty,
+                ////Titula = string.Empty,
+                ////Zanimanje = string.Empty,
+                ////ZavrsenaSkola = string.Empty
             };
-            //OsobaArgs myArgs = new OsobaArgs(newR);
-            //IzmjenaOsobaa(this, myArgs);
-            frmKupac fK = new frmKupac();
-            fK.Osoba = newR;
+            frmVoziloEdit fK = new frmVoziloEdit();
+            fK.Vozilo = newR;
             fK.ShowDialog();
         }
 
@@ -181,7 +152,7 @@ namespace CarRental
                 LoadData((int)gridView.GetFocusedRowCellValue("ID"));
         }
 
-        private void ucRadnici_VisibleChanged(object sender, EventArgs e)
+        private void ucRenta_VisibleChanged(object sender, EventArgs e)
         {
             if (!(this.DesignMode))
             {
@@ -195,11 +166,11 @@ namespace CarRental
 
         private void bbiDelete_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (TrenutniOsoba.ID > 0)
+            if (Trenutni.ID > 0)
             {
                 if (MessageBox.Show("Da li ste sigurni u brisanje podatka?", "Potvrda brisanja", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    rs.Delete(TrenutniOsoba.ID);
+                    rs.Delete(Trenutni.ID);
                     LoadData(0);
                 }
             }

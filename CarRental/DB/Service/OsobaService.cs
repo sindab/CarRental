@@ -45,6 +45,11 @@ namespace CarRental.DB.Service
             return _db.Query<Osoba>("SELECT * FROM [dbo].[Osoba] WHERE ISNULL(Lozinka,'') <> '' ").ToList();
         }
 
+        public List<Lookups> GetLookup()
+        {
+            return _db.Query<Lookups>("SELECT ID, ISNULL(Prezime,'') + ' ' + ISNULL(Ime,'') as Naziv FROM [dbo].[Osoba]").ToList();
+        }
+
         public Osoba GetByID(int Id)
         {
             try
@@ -63,6 +68,18 @@ namespace CarRental.DB.Service
             //    "[PoslovnaJedinica],[RadnoMjesto],[BrLK],[BrRadneKnj],[OpstinaIzdavanjaRK],[LicniBrOsiguranja],[NacinIsplate],[BrTekucegRn]," +
             //    "[Banka],[DatumPrvogZapos],[PrethodniStazMj],[PrethodniStazDan],[PrethodniStazUFirmiMj],[PrethodniStazUFirmiDan],[DatumZapos]," +
             //    "[TipRadnogOdnosa],[NacinPrestankaRO],[DatumPrestankaRO],[Napomena],[FindStr],[Lozinka],[Slika],eMail FROM [dbo].[Osoba] WHERE ID = @ID", new { ID = Id }).SingleOrDefault();
+        }
+
+        public decimal Rejting(int Id)
+        {
+            try
+            {
+                return (decimal)_db.ExecuteScalar(string.Format("SELECT SUM([RatingKupca])/COUNT(ID) FROM [Renta] WHERE IsRazduzen = 1 and OsobaID = {0}", Id));
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
 
         //public OsobaStaz GetStaz(int Id)

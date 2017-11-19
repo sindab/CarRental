@@ -1,6 +1,6 @@
 ﻿namespace CarRental.Sifarnici
 {
-    partial class ucMjesta
+    partial class ucBoja
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gcID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcNaziv = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiPrintPreview = new DevExpress.XtraBars.BarButtonItem();
             this.bsiRecordsCount = new DevExpress.XtraBars.BarStaticItem();
@@ -39,20 +43,57 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gcID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcOpstinaID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lkpOpstine = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gcPostBr = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcNaziv = new DevExpress.XtraGrid.Columns.GridColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkpOpstine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gridControl
+            // 
+            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl.Location = new System.Drawing.Point(0, 116);
+            this.gridControl.MainView = this.gridView;
+            this.gridControl.MenuManager = this.ribbonControl;
+            this.gridControl.Name = "gridControl";
+            this.gridControl.Size = new System.Drawing.Size(800, 457);
+            this.gridControl.TabIndex = 2;
+            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView});
+            // 
+            // gridView
+            // 
+            this.gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gcID,
+            this.gcNaziv});
+            this.gridView.GridControl = this.gridControl;
+            this.gridView.Name = "gridView";
+            this.gridView.OptionsBehavior.Editable = false;
+            this.gridView.OptionsBehavior.ReadOnly = true;
+            this.gridView.OptionsEditForm.ActionOnModifiedRowChange = DevExpress.XtraGrid.Views.Grid.EditFormModifiedAction.Save;
+            this.gridView.OptionsEditForm.EditFormColumnCount = 1;
+            this.gridView.OptionsEditForm.ShowOnDoubleClick = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView.OptionsView.ShowGroupPanel = false;
+            // 
+            // gcID
+            // 
+            this.gcID.Caption = "ID";
+            this.gcID.FieldName = "ID";
+            this.gcID.Name = "gcID";
+            this.gcID.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
+            this.gcID.Visible = true;
+            this.gcID.VisibleIndex = 0;
+            this.gcID.Width = 98;
+            // 
+            // gcNaziv
+            // 
+            this.gcNaziv.Caption = "Naziv";
+            this.gcNaziv.FieldName = "Naziv";
+            this.gcNaziv.Name = "gcNaziv";
+            this.gcNaziv.Visible = true;
+            this.gcNaziv.VisibleIndex = 1;
+            this.gcNaziv.Width = 686;
             // 
             // ribbonControl
             // 
@@ -67,7 +108,6 @@
             this.bbiRefresh});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.MaxItemId = 20;
-            this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -130,7 +170,7 @@
             this.ribbonPageGroup2});
             this.ribbonPage1.MergeOrder = 0;
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Mjesta/gradovi";
+            this.ribbonPage1.Text = "Boje vozila";
             // 
             // ribbonPageGroup1
             // 
@@ -159,123 +199,26 @@
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(800, 27);
             // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Print Preview";
-            this.barButtonItem1.Id = 14;
-            this.barButtonItem1.ImageOptions.ImageUri.Uri = "Preview";
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Print Preview";
-            this.barButtonItem2.Id = 14;
-            this.barButtonItem2.ImageOptions.ImageUri.Uri = "Preview";
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // gridControl
-            // 
-            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(0, 116);
-            this.gridControl.MainView = this.gridView;
-            this.gridControl.MenuManager = this.ribbonControl;
-            this.gridControl.Name = "gridControl";
-            this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.lkpOpstine});
-            this.gridControl.Size = new System.Drawing.Size(800, 457);
-            this.gridControl.TabIndex = 4;
-            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView});
-            // 
-            // gridView
-            // 
-            this.gridView.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gcID,
-            this.gcOpstinaID,
-            this.gcPostBr,
-            this.gcNaziv});
-            this.gridView.GridControl = this.gridControl;
-            this.gridView.GroupCount = 1;
-            this.gridView.Name = "gridView";
-            this.gridView.OptionsBehavior.AutoExpandAllGroups = true;
-            this.gridView.OptionsBehavior.Editable = false;
-            this.gridView.OptionsBehavior.ReadOnly = true;
-            this.gridView.OptionsEditForm.ActionOnModifiedRowChange = DevExpress.XtraGrid.Views.Grid.EditFormModifiedAction.Save;
-            this.gridView.OptionsEditForm.EditFormColumnCount = 1;
-            this.gridView.OptionsEditForm.ShowOnDoubleClick = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView.OptionsView.ShowGroupPanel = false;
-            this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gcOpstinaID, DevExpress.Data.ColumnSortOrder.Ascending)});
-            // 
-            // gcID
-            // 
-            this.gcID.Caption = "ID";
-            this.gcID.FieldName = "ID";
-            this.gcID.Name = "gcID";
-            this.gcID.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.False;
-            this.gcID.Visible = true;
-            this.gcID.VisibleIndex = 0;
-            this.gcID.Width = 80;
-            // 
-            // gcOpstinaID
-            // 
-            this.gcOpstinaID.Caption = "Opština";
-            this.gcOpstinaID.ColumnEdit = this.lkpOpstine;
-            this.gcOpstinaID.FieldName = "OpstinaID";
-            this.gcOpstinaID.Name = "gcOpstinaID";
-            this.gcOpstinaID.Visible = true;
-            this.gcOpstinaID.VisibleIndex = 1;
-            this.gcOpstinaID.Width = 192;
-            // 
-            // lkpOpstine
-            // 
-            this.lkpOpstine.AutoHeight = false;
-            this.lkpOpstine.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkpOpstine.DisplayMember = "Naziv";
-            this.lkpOpstine.KeyMember = "OpstinaID";
-            this.lkpOpstine.Name = "lkpOpstine";
-            this.lkpOpstine.ValueMember = "ID";
-            // 
-            // gcPostBr
-            // 
-            this.gcPostBr.Caption = "Poštanski broj";
-            this.gcPostBr.FieldName = "PostBr";
-            this.gcPostBr.Name = "gcPostBr";
-            this.gcPostBr.Visible = true;
-            this.gcPostBr.VisibleIndex = 1;
-            this.gcPostBr.Width = 99;
-            // 
-            // gcNaziv
-            // 
-            this.gcNaziv.Caption = "Naziv";
-            this.gcNaziv.FieldName = "Naziv";
-            this.gcNaziv.Name = "gcNaziv";
-            this.gcNaziv.Visible = true;
-            this.gcNaziv.VisibleIndex = 2;
-            this.gcNaziv.Width = 413;
-            // 
-            // ucMjesta
+            // ucBoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
-            this.Name = "ucMjesta";
+            this.Name = "ucBoja";
             this.Size = new System.Drawing.Size(800, 600);
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lkpOpstine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+        private DevExpress.XtraGrid.GridControl gridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
@@ -287,14 +230,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiEdit;
         private DevExpress.XtraBars.BarButtonItem bbiDelete;
         private DevExpress.XtraBars.BarButtonItem bbiRefresh;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraGrid.GridControl gridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraGrid.Columns.GridColumn gcID;
-        private DevExpress.XtraGrid.Columns.GridColumn gcPostBr;
         private DevExpress.XtraGrid.Columns.GridColumn gcNaziv;
-        private DevExpress.XtraGrid.Columns.GridColumn gcOpstinaID;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lkpOpstine;
     }
 }

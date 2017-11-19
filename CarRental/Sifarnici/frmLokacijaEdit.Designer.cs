@@ -1,6 +1,6 @@
 ﻿namespace CarRental.Sifarnici
 {
-    partial class frmDrzavaEdit
+    partial class frmLokacijaEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -37,10 +37,16 @@
             this.bbiClose = new DevExpress.XtraBars.BarButtonItem();
             this.mainRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.mainRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtAdresa = new DevExpress.XtraEditors.TextEdit();
             this.txtNaziv = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.lkpMjesta = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAdresa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNaziv.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkpMjesta.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mainRibbonControl
@@ -120,7 +126,7 @@
             this.mainRibbonPageGroup});
             this.mainRibbonPage.MergeOrder = 0;
             this.mainRibbonPage.Name = "mainRibbonPage";
-            this.mainRibbonPage.Text = "Država";
+            this.mainRibbonPage.Text = "Lokacija";
             // 
             // mainRibbonPageGroup
             // 
@@ -135,36 +141,79 @@
             this.mainRibbonPageGroup.ShowCaptionButton = false;
             this.mainRibbonPageGroup.Text = "Podaci";
             // 
-            // labelControl2
+            // labelControl1
             // 
-            this.labelControl2.Location = new System.Drawing.Point(44, 230);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(26, 13);
-            this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "Naziv";
+            this.labelControl1.Location = new System.Drawing.Point(53, 215);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(34, 13);
+            this.labelControl1.TabIndex = 2;
+            this.labelControl1.Text = "Adresa";
+            // 
+            // txtAdresa
+            // 
+            this.txtAdresa.Location = new System.Drawing.Point(156, 212);
+            this.txtAdresa.MenuManager = this.mainRibbonControl;
+            this.txtAdresa.Name = "txtAdresa";
+            this.txtAdresa.Size = new System.Drawing.Size(281, 20);
+            this.txtAdresa.TabIndex = 3;
             // 
             // txtNaziv
             // 
-            this.txtNaziv.Location = new System.Drawing.Point(147, 227);
+            this.txtNaziv.Location = new System.Drawing.Point(156, 186);
             this.txtNaziv.MenuManager = this.mainRibbonControl;
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(281, 20);
-            this.txtNaziv.TabIndex = 5;
+            this.txtNaziv.TabIndex = 1;
             // 
-            // frmDrzavaEdit
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(53, 189);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(26, 13);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "Naziv";
+            // 
+            // lkpMjesta
+            // 
+            this.lkpMjesta.Location = new System.Drawing.Point(156, 238);
+            this.lkpMjesta.MenuManager = this.mainRibbonControl;
+            this.lkpMjesta.Name = "lkpMjesta";
+            this.lkpMjesta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkpMjesta.Properties.DisplayMember = "Naziv";
+            this.lkpMjesta.Properties.NullText = "Izaberite...";
+            this.lkpMjesta.Properties.ValueMember = "ID";
+            this.lkpMjesta.Size = new System.Drawing.Size(281, 20);
+            this.lkpMjesta.TabIndex = 5;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(53, 241);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(32, 13);
+            this.labelControl3.TabIndex = 4;
+            this.labelControl3.Text = "Mjesto";
+            // 
+            // frmLokacijaEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(478, 341);
+            this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.txtNaziv);
             this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.txtAdresa);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.lkpMjesta);
             this.Controls.Add(this.mainRibbonControl);
-            this.Name = "frmDrzavaEdit";
+            this.Name = "frmLokacijaEdit";
             this.Ribbon = this.mainRibbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAdresa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNaziv.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lkpMjesta.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,7 +229,11 @@
         private DevExpress.XtraBars.BarButtonItem bbiReset;
         private DevExpress.XtraBars.BarButtonItem bbiDelete;
         private DevExpress.XtraBars.BarButtonItem bbiClose;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TextEdit txtAdresa;
         private DevExpress.XtraEditors.TextEdit txtNaziv;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LookUpEdit lkpMjesta;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

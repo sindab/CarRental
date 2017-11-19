@@ -1,6 +1,6 @@
 ﻿namespace CarRental.Sifarnici
 {
-    partial class frmDrzavaEdit
+    partial class frmMarkaEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -120,7 +120,7 @@
             this.mainRibbonPageGroup});
             this.mainRibbonPage.MergeOrder = 0;
             this.mainRibbonPage.Name = "mainRibbonPage";
-            this.mainRibbonPage.Text = "Država";
+            this.mainRibbonPage.Text = "Marka";
             // 
             // mainRibbonPageGroup
             // 
@@ -137,7 +137,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(44, 230);
+            this.labelControl2.Location = new System.Drawing.Point(39, 220);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(26, 13);
             this.labelControl2.TabIndex = 4;
@@ -145,13 +145,13 @@
             // 
             // txtNaziv
             // 
-            this.txtNaziv.Location = new System.Drawing.Point(147, 227);
+            this.txtNaziv.Location = new System.Drawing.Point(142, 217);
             this.txtNaziv.MenuManager = this.mainRibbonControl;
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(281, 20);
             this.txtNaziv.TabIndex = 5;
             // 
-            // frmDrzavaEdit
+            // frmMarkaEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,7 +160,7 @@
             this.Controls.Add(this.txtNaziv);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.mainRibbonControl);
-            this.Name = "frmDrzavaEdit";
+            this.Name = "frmMarkaEdit";
             this.Ribbon = this.mainRibbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).EndInit();

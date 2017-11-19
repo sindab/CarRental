@@ -1,6 +1,6 @@
 ﻿namespace CarRental.Sifarnici
 {
-    partial class frmDrzavaEdit
+    partial class frmBojaEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -120,7 +120,7 @@
             this.mainRibbonPageGroup});
             this.mainRibbonPage.MergeOrder = 0;
             this.mainRibbonPage.Name = "mainRibbonPage";
-            this.mainRibbonPage.Text = "Država";
+            this.mainRibbonPage.Text = "Boja";
             // 
             // mainRibbonPageGroup
             // 
@@ -151,7 +151,7 @@
             this.txtNaziv.Size = new System.Drawing.Size(281, 20);
             this.txtNaziv.TabIndex = 5;
             // 
-            // frmDrzavaEdit
+            // frmBojaEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,7 +160,7 @@
             this.Controls.Add(this.txtNaziv);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.mainRibbonControl);
-            this.Name = "frmDrzavaEdit";
+            this.Name = "frmBojaEdit";
             this.Ribbon = this.mainRibbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).EndInit();
