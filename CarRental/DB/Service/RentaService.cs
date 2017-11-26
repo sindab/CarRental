@@ -127,5 +127,33 @@ namespace CarRental.DB.Service
         {
             _db.Execute(@"DELETE FROM [Renta] WHERE ID = @ID", new { ID = id });
         }
+
+        //***************vRenta*******************
+
+        public IEnumerable<vRenta> GetAllV()
+        {
+            return _db.GetAll<vRenta>();
+        }
+
+        public vRenta GetVByID(int Id)
+        {
+            return _db.Get<vRenta>(Id);
+        }
+
+        public IEnumerable<vRenta> GetAllByVozilo(int voziloId)
+        {
+            return _db.Query<vRenta>(string.Format("SELECT * FROM [dbo].[vRenta] WHERE [VoziloID] = {0} ORDER BY Datum DESC",voziloId));
+        }
+        public IEnumerable<vRenta> GetAllByVozac(int vozacId)
+        {
+            return _db.Query<vRenta>(string.Format("SELECT * FROM [dbo].[vRenta] WHERE [OsobaID] = {0} ORDER BY Datum DESC", vozacId));
+        }
+
+        //***************vUgovor*******************
+
+        public vUgovor GetUgovor(int Id)
+        {
+            return _db.Get<vUgovor>(Id);
+        }
     }
 }

@@ -39,6 +39,9 @@ namespace CarRental.Forms
                 OblikService obs = new OblikService();
                 List<Oblik> oblici = obs.GetLookup();
                 cbOblik.Properties.DataSource = oblici;
+
+                RentaService rs = new RentaService();
+                gridControl1.DataSource = rs.GetAllByVozilo(Vozilo.ID).ToList();
             }
         }
 

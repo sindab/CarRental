@@ -44,6 +44,8 @@ namespace CarRental.Forms
                 IEnumerable<Lokacija> lokacije = ls.GetAll();
                 lkpPreuzimanje.Properties.DataSource = lokacije.ToList();
                 lkpZaPovrat.Properties.DataSource = lokacije.ToList();
+                lkpLokPovRaz.Properties.DataSource = lokacije.ToList();
+                lkpLokVracanje.Properties.DataSource = lokacije.ToList();
 
                 autoGroupForTabs.SelectedTabPage = autoGroupForContact;
             }
@@ -104,9 +106,12 @@ namespace CarRental.Forms
                     cbPlaceno.Checked = (bool)_Renta.IsPlaceno;
                     ratingControl1.EditValue = _Renta.RatingKupca;
 
+                    memoOpisZaduzenje.EditValue = _Renta.OpisZaduzen;
+                    memoOpisRazduzenje.EditValue = _Renta.OpisRazduzen;
+
+                    RacunajDanaZaduzen();
                     LoadCarPicture(_Renta.VoziloID);
 
-                    layoutControlGroup5.Enabled = (bool)_Renta.IsRazduzen;
                     ProvjeriZaduzeno(!(bool)_Renta.IsZaduzen);
                 }
             }
@@ -129,11 +134,9 @@ namespace CarRental.Forms
             txtRabat.Enabled = enable;
             txtPdv.Enabled = enable;
             txtDepozit.Enabled = enable;
-            txtIznos.Enabled = false;
-
+            txtIznos.Enabled = enable;
             autoGroupForJob.Enabled = !enable;
-
-
+            layoutControlGroup5.Enabled = !enable;
         }
 
         private void LoadCarPicture(int voziloID)
@@ -192,6 +195,32 @@ namespace CarRental.Forms
 
             if (txtDanaRazd.EditValue == null) _Renta.DanaZaRacun = 0;
             else _Renta.DanaZaRacun = Convert.ToInt32(txtDanaRazd.EditValue);
+
+            if (txtStanjeBrojilaKraj.EditValue == null) _Renta.StanjeBrojilaKraj = 0;
+            else _Renta.StanjeBrojilaKraj = Convert.ToInt32(txtStanjeBrojilaKraj.EditValue);
+            if (txtStanjeGorivoKraj.EditValue == null) _Renta.StanjeGorivoKraj = 0;
+            else _Renta.StanjeGorivoKraj = Convert.ToInt32(txtStanjeGorivoKraj.EditValue);
+            _Renta.IsRazduzen = cbRazduzen.Checked;
+            _Renta.IsProduzen = cbProduzen.Checked;
+            if (dtRazd.EditValue == null) _Renta.DatumRazduzen = DateTime.Today;
+            else _Renta.DatumRazduzen = Convert.ToDateTime(dtRazd.EditValue);
+            if (dtProduzen.EditValue == null) _Renta.DatumProduzenDo = DateTime.Today;
+            else _Renta.DatumProduzenDo = Convert.ToDateTime(dtProduzen.EditValue);
+
+            if (memoOpisZaduzenje.EditValue == null) _Renta.OpisZaduzen = string.Empty;
+            else _Renta.OpisZaduzen = memoOpisZaduzenje.EditValue.ToString();
+            if (memoOpisRazduzenje.EditValue == null) _Renta.OpisRazduzen = string.Empty;
+            else _Renta.OpisRazduzen = memoOpisRazduzenje.EditValue.ToString();
+
+            if (lkpLokVracanje.EditValue == null) _Renta.LokacijaVraceno = null;
+            else _Renta.LokacijaVraceno = Convert.ToInt32(lkpLokVracanje.EditValue);
+
+            if (txtNaplata.EditValue == null) _Renta.Naplata = 0;
+            else _Renta.Naplata = Convert.ToInt32(txtNaplata.EditValue);
+
+            _Renta.RatingKupca = ratingControl1.Rating;
+            _Renta.IsPlaceno = cbPlaceno.Checked;
+
 
             //_Renta.Napomena = memoNapomena.EditValue.ToString();
             //if (txtEmail.EditValue == null) _Renta.eMail = null;
@@ -269,7 +298,7 @@ namespace CarRental.Forms
         {
             try
             {
-                txtDanaZaduzen.EditValue = (dtDo.DateTime - dtOd.DateTime).TotalDays;
+                txtDanaZaduzen.EditValue = (dtRazd.DateTime - dtOd.DateTime).TotalDays + 1;
             }
             catch (Exception)
             {
@@ -286,7 +315,7 @@ namespace CarRental.Forms
             try
             {
                 cena = (decimal)txtCena.EditValue;
-                int.TryParse(txtDanaZaduzen.EditValue.ToString(),out dana);
+                int.TryParse(txtDanaZaduzen.EditValue.ToString(), out dana);
                 rabat = (decimal)txtRabat.EditValue / 100;
                 pdv = (decimal)txtPdv.EditValue / 100;
                 txtIznos.EditValue = ((cena * dana) * (1 - rabat)) * (1 + pdv); // - Rabat * PDV
@@ -302,23 +331,36 @@ namespace CarRental.Forms
 
         private void RacunajZaNaplatu()
         {
+            //decimal d = 0;
+            //try
+            //{
+            //    decimal.TryParse(txtNaplata.EditValue.ToString(), out d);
+            //}
+            //catch (Exception)
+            //{
+            //    d = 0;
+            //}
+            //if (d == 0)
+            //{
             decimal iznos;
             decimal depozit;
             try
             {
                 iznos = (decimal)txtIznos.EditValue;
                 depozit = (decimal)txtDepozitRazd.EditValue;
-                txtNaplata.EditValue = iznos-depozit;
+                txtNaplata.EditValue = iznos - depozit;
             }
             catch (Exception exc)
             {
                 txtNaplata.EditValue = 0;
             }
+            //}
         }
 
         private void cbIsZaduzen_CheckedChanged(object sender, EventArgs e)
         {
-            Snimi();
+            //Snimi();
+            ProvjeriZaduzeno(!cbIsZaduzen.Checked);
         }
 
         private void txtCena_EditValueChanged(object sender, EventArgs e)
@@ -352,6 +394,8 @@ namespace CarRental.Forms
 
         private void cbRazduzen_CheckedChanged(object sender, EventArgs e)
         {
+            if (dtRazd.EditValue == null)
+                dtRazd.EditValue = dtDoRazd.EditValue;
             layoutControlGroup5.Enabled = cbRazduzen.Checked;
         }
 
@@ -359,7 +403,7 @@ namespace CarRental.Forms
         {
             txtDepozitRazd.EditValue = txtDepozit.EditValue;
         }
-        
+
         private void dtRazd_EditValueChanged(object sender, EventArgs e)
         {
             RacunajDanaRazduzen();
@@ -369,7 +413,9 @@ namespace CarRental.Forms
         {
             try
             {
-                txtDanaRazd.EditValue = (dtRazd.DateTime - dtOd.DateTime).TotalDays;
+                double days = (dtRazd.DateTime - dtOd.DateTime).TotalDays + 1;
+                if (days > -1)
+                    txtDanaRazd.EditValue = days;
             }
             catch (Exception)
             {
@@ -378,5 +424,37 @@ namespace CarRental.Forms
             txtDanaZaduzen.EditValue = txtDanaRazd.EditValue;
         }
 
+        private void txtIznos_EditValueChanged(object sender, EventArgs e)
+        {
+            RacunajRabat();
+        }
+
+        private void RacunajRabat()
+        {
+            this.txtRabat.EditValueChanged -= new System.EventHandler(this.txtRabat_EditValueChanged);
+            decimal cena;
+            int dana;
+            decimal iznos;
+            decimal pdv;
+            decimal rabat;
+            try
+            {
+                cena = (decimal)txtCena.EditValue;
+                int.TryParse(txtDanaZaduzen.EditValue.ToString(), out dana);
+                iznos = (decimal)txtIznos.EditValue;
+                pdv = (decimal)txtPdv.EditValue / 100;
+                rabat = Math.Round((1 - (iznos / ((cena * dana) * (1 + pdv)))), 2);
+                if (Math.Round((decimal)txtRabat.EditValue, 2) != rabat*100)
+                    txtRabat.EditValue = rabat*100;
+            }
+            catch (Exception exc)
+            {
+
+            }
+            txtIznosRazd.EditValue = txtIznos.EditValue;
+            txtRabatRazd.EditValue = txtRabat.EditValue;
+            RacunajZaNaplatu();
+            this.txtRabat.EditValueChanged += new System.EventHandler(this.txtRabat_EditValueChanged);
+        }
     }
 }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.ContextButton contextButton2 = new DevExpress.Utils.ContextButton();
+            DevExpress.Utils.ContextButton contextButton1 = new DevExpress.Utils.ContextButton();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDokumentEdit));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.ratingControl1 = new DevExpress.XtraEditors.RatingControl();
+            this.memoOpisRazduzenje = new DevExpress.XtraEditors.MemoEdit();
             this.mainRibbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSaveAndClose = new DevExpress.XtraBars.BarButtonItem();
@@ -41,6 +41,7 @@
             this.bbiClose = new DevExpress.XtraBars.BarButtonItem();
             this.mainRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.mainRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ratingControl1 = new DevExpress.XtraEditors.RatingControl();
             this.cbPlaceno = new DevExpress.XtraEditors.CheckEdit();
             this.txtNaplata = new DevExpress.XtraEditors.TextEdit();
             this.txtDepozitRazd = new DevExpress.XtraEditors.TextEdit();
@@ -137,15 +138,15 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem43 = new DevExpress.XtraLayout.LayoutControlItem();
             this.frmDokumentEditlayoutControl1ConvertedLayout = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.layoutControlItem43 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ratingControl1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoOpisRazduzenje.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ratingControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbPlaceno.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNaplata.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepozitRazd.Properties)).BeginInit();
@@ -248,18 +249,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmDokumentEditlayoutControl1ConvertedLayout)).BeginInit();
             this.frmDokumentEditlayoutControl1ConvertedLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
             // 
             this.dataLayoutControl1.AllowCustomization = false;
-            this.dataLayoutControl1.Controls.Add(this.memoEdit1);
+            this.dataLayoutControl1.Controls.Add(this.memoOpisRazduzenje);
             this.dataLayoutControl1.Controls.Add(this.ratingControl1);
             this.dataLayoutControl1.Controls.Add(this.cbPlaceno);
             this.dataLayoutControl1.Controls.Add(this.txtNaplata);
@@ -308,20 +308,14 @@
             this.dataLayoutControl1.Size = new System.Drawing.Size(1109, 639);
             this.dataLayoutControl1.TabIndex = 0;
             // 
-            // ratingControl1
+            // memoOpisRazduzenje
             // 
-            this.ratingControl1.Location = new System.Drawing.Point(942, 383);
-            this.ratingControl1.MenuManager = this.mainRibbonControl;
-            this.ratingControl1.Name = "ratingControl1";
-            this.ratingControl1.Rating = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.ratingControl1.Size = new System.Drawing.Size(87, 16);
-            this.ratingControl1.StyleController = this.dataLayoutControl1;
-            this.ratingControl1.TabIndex = 87;
-            this.ratingControl1.Text = "ratingControl1";
+            this.memoOpisRazduzenje.Location = new System.Drawing.Point(556, 455);
+            this.memoOpisRazduzenje.MenuManager = this.mainRibbonControl;
+            this.memoOpisRazduzenje.Name = "memoOpisRazduzenje";
+            this.memoOpisRazduzenje.Size = new System.Drawing.Size(541, 172);
+            this.memoOpisRazduzenje.StyleController = this.dataLayoutControl1;
+            this.memoOpisRazduzenje.TabIndex = 88;
             // 
             // mainRibbonControl
             // 
@@ -415,6 +409,21 @@
             this.mainRibbonPageGroup.ShowCaptionButton = false;
             this.mainRibbonPageGroup.Text = "Podaci";
             // 
+            // ratingControl1
+            // 
+            this.ratingControl1.Location = new System.Drawing.Point(942, 383);
+            this.ratingControl1.MenuManager = this.mainRibbonControl;
+            this.ratingControl1.Name = "ratingControl1";
+            this.ratingControl1.Rating = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.ratingControl1.Size = new System.Drawing.Size(87, 16);
+            this.ratingControl1.StyleController = this.dataLayoutControl1;
+            this.ratingControl1.TabIndex = 87;
+            this.ratingControl1.Text = "ratingControl1";
+            // 
             // cbPlaceno
             // 
             this.cbPlaceno.Location = new System.Drawing.Point(700, 383);
@@ -434,6 +443,8 @@
             this.txtNaplata.Properties.Appearance.Options.UseFont = true;
             this.txtNaplata.Properties.Mask.EditMask = "n2";
             this.txtNaplata.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtNaplata.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtNaplata.Properties.ReadOnly = true;
             this.txtNaplata.Size = new System.Drawing.Size(265, 30);
             this.txtNaplata.StyleController = this.dataLayoutControl1;
             this.txtNaplata.TabIndex = 85;
@@ -444,6 +455,7 @@
             this.txtDepozitRazd.MenuManager = this.mainRibbonControl;
             this.txtDepozitRazd.Name = "txtDepozitRazd";
             this.txtDepozitRazd.Properties.Mask.EditMask = "n2";
+            this.txtDepozitRazd.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtDepozitRazd.Properties.ReadOnly = true;
             this.txtDepozitRazd.Size = new System.Drawing.Size(265, 20);
             this.txtDepozitRazd.StyleController = this.dataLayoutControl1;
@@ -456,6 +468,7 @@
             this.txtIznosRazd.Name = "txtIznosRazd";
             this.txtIznosRazd.Properties.Mask.EditMask = "n2";
             this.txtIznosRazd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtIznosRazd.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtIznosRazd.Properties.ReadOnly = true;
             this.txtIznosRazd.Size = new System.Drawing.Size(265, 20);
             this.txtIznosRazd.StyleController = this.dataLayoutControl1;
@@ -467,6 +480,8 @@
             this.txtPDVRazd.MenuManager = this.mainRibbonControl;
             this.txtPDVRazd.Name = "txtPDVRazd";
             this.txtPDVRazd.Properties.Mask.EditMask = "P";
+            this.txtPDVRazd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPDVRazd.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtPDVRazd.Properties.ReadOnly = true;
             this.txtPDVRazd.Size = new System.Drawing.Size(265, 20);
             this.txtPDVRazd.StyleController = this.dataLayoutControl1;
@@ -478,6 +493,8 @@
             this.txtRabatRazd.MenuManager = this.mainRibbonControl;
             this.txtRabatRazd.Name = "txtRabatRazd";
             this.txtRabatRazd.Properties.Mask.EditMask = "P";
+            this.txtRabatRazd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtRabatRazd.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtRabatRazd.Properties.ReadOnly = true;
             this.txtRabatRazd.Size = new System.Drawing.Size(265, 20);
             this.txtRabatRazd.StyleController = this.dataLayoutControl1;
@@ -490,6 +507,7 @@
             this.txtCenaRazd.Name = "txtCenaRazd";
             this.txtCenaRazd.Properties.Mask.EditMask = "n2";
             this.txtCenaRazd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtCenaRazd.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtCenaRazd.Properties.ReadOnly = true;
             this.txtCenaRazd.Size = new System.Drawing.Size(265, 20);
             this.txtCenaRazd.StyleController = this.dataLayoutControl1;
@@ -502,7 +520,9 @@
             this.lkpLokVracanje.Name = "lkpLokVracanje";
             this.lkpLokVracanje.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkpLokVracanje.Properties.DisplayMember = "Naziv";
             this.lkpLokVracanje.Properties.NullText = "Izaberite...";
+            this.lkpLokVracanje.Properties.ValueMember = "ID";
             this.lkpLokVracanje.Size = new System.Drawing.Size(243, 20);
             this.lkpLokVracanje.StyleController = this.dataLayoutControl1;
             this.lkpLokVracanje.TabIndex = 79;
@@ -514,8 +534,10 @@
             this.lkpLokPovRaz.Name = "lkpLokPovRaz";
             this.lkpLokPovRaz.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkpLokPovRaz.Properties.DisplayMember = "Naziv";
             this.lkpLokPovRaz.Properties.NullText = "Izaberite...";
             this.lkpLokPovRaz.Properties.ReadOnly = true;
+            this.lkpLokPovRaz.Properties.ValueMember = "ID";
             this.lkpLokPovRaz.Size = new System.Drawing.Size(244, 20);
             this.lkpLokPovRaz.StyleController = this.dataLayoutControl1;
             this.lkpLokPovRaz.TabIndex = 78;
@@ -673,7 +695,6 @@
             // 
             // txtIznos
             // 
-            this.txtIznos.Enabled = false;
             this.txtIznos.Location = new System.Drawing.Point(462, 301);
             this.txtIznos.MenuManager = this.mainRibbonControl;
             this.txtIznos.Name = "txtIznos";
@@ -685,6 +706,7 @@
             this.txtIznos.Size = new System.Drawing.Size(244, 22);
             this.txtIznos.StyleController = this.dataLayoutControl1;
             this.txtIznos.TabIndex = 65;
+            this.txtIznos.EditValueChanged += new System.EventHandler(this.txtIznos_EditValueChanged);
             // 
             // txtPdv
             // 
@@ -934,12 +956,12 @@
             this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureEdit1.Location = new System.Drawing.Point(12, 12);
             this.pictureEdit1.Name = "pictureEdit1";
-            contextButton2.Alignment = DevExpress.Utils.ContextItemAlignment.BottomFar;
-            contextButton2.Caption = "Dodaj/promjeni fotografiju";
-            contextButton2.Id = new System.Guid("8877d5fc-004a-4264-9174-58d9edcc153b");
-            contextButton2.Name = "btnUcitajSliku";
-            contextButton2.ToolTip = "Učitaj sliku";
-            this.pictureEdit1.Properties.ContextButtons.Add(contextButton2);
+            contextButton1.Alignment = DevExpress.Utils.ContextItemAlignment.BottomFar;
+            contextButton1.Caption = "Dodaj/promjeni fotografiju";
+            contextButton1.Id = new System.Guid("8877d5fc-004a-4264-9174-58d9edcc153b");
+            contextButton1.Name = "btnUcitajSliku";
+            contextButton1.ToolTip = "Učitaj sliku";
+            this.pictureEdit1.Properties.ContextButtons.Add(contextButton1);
             this.pictureEdit1.Properties.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureEdit1.Properties.InitialImage")));
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
@@ -1027,8 +1049,8 @@
             this.autoGroupForTabs.CustomizationFormText = "Tabs";
             this.autoGroupForTabs.Location = new System.Drawing.Point(0, 76);
             this.autoGroupForTabs.Name = "autoGroupForTabs";
-            this.autoGroupForTabs.SelectedTabPage = this.autoGroupForJob;
-            this.autoGroupForTabs.SelectedTabPageIndex = 1;
+            this.autoGroupForTabs.SelectedTabPage = this.autoGroupForContact;
+            this.autoGroupForTabs.SelectedTabPageIndex = 0;
             this.autoGroupForTabs.Size = new System.Drawing.Size(802, 351);
             this.autoGroupForTabs.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.autoGroupForContact,
@@ -1529,6 +1551,16 @@
             this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(117, 13);
             // 
+            // layoutControlItem43
+            // 
+            this.layoutControlItem43.Control = this.memoOpisRazduzenje;
+            this.layoutControlItem43.Location = new System.Drawing.Point(544, 427);
+            this.layoutControlItem43.Name = "layoutControlItem43";
+            this.layoutControlItem43.Size = new System.Drawing.Size(545, 192);
+            this.layoutControlItem43.Text = "Napomena - Razduženje";
+            this.layoutControlItem43.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem43.TextSize = new System.Drawing.Size(117, 13);
+            // 
             // frmDokumentEditlayoutControl1ConvertedLayout
             // 
             this.frmDokumentEditlayoutControl1ConvertedLayout.Controls.Add(this.dataLayoutControl1);
@@ -1559,25 +1591,6 @@
             this.layoutControlItem27.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem27.TextVisible = false;
             // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Location = new System.Drawing.Point(556, 455);
-            this.memoEdit1.MenuManager = this.mainRibbonControl;
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(541, 172);
-            this.memoEdit1.StyleController = this.dataLayoutControl1;
-            this.memoEdit1.TabIndex = 88;
-            // 
-            // layoutControlItem43
-            // 
-            this.layoutControlItem43.Control = this.memoEdit1;
-            this.layoutControlItem43.Location = new System.Drawing.Point(544, 427);
-            this.layoutControlItem43.Name = "layoutControlItem43";
-            this.layoutControlItem43.Size = new System.Drawing.Size(545, 192);
-            this.layoutControlItem43.Text = "Napomena - Razduženje";
-            this.layoutControlItem43.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem43.TextSize = new System.Drawing.Size(117, 13);
-            // 
             // frmDokumentEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1591,8 +1604,9 @@
             this.Load += new System.EventHandler(this.ucRenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ratingControl1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memoOpisRazduzenje.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainRibbonControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ratingControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbPlaceno.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNaplata.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDepozitRazd.Properties)).EndInit();
@@ -1695,12 +1709,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frmDokumentEditlayoutControl1ConvertedLayout)).EndInit();
             this.frmDokumentEditlayoutControl1ConvertedLayout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem43)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1819,7 +1832,7 @@
         private DevExpress.XtraEditors.CheckEdit cbPlaceno;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem41;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem42;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraEditors.MemoEdit memoOpisRazduzenje;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem43;
     }
 }

@@ -13,6 +13,9 @@ using System.ComponentModel.DataAnnotations;
 using CarRental.DB.Models;
 using CarRental.DB.Service;
 using Microsoft.Win32;
+using CarRental.Reports;
+using SharpGen.DataWrappers;
+using SharpGen;
 
 namespace CarRental.Forms
 {
@@ -40,9 +43,9 @@ namespace CarRental.Forms
                 List<Lookups> osobe = os.GetLookup();
                 lkpOsoba.DataSource = osobe;
                 lkpDrugaOsoba.DataSource = osobe;
-                //VoziloService vs = new VoziloService();
-                //IEnumerable<Vozilo> vozila = vs.GetAll();
-                //lkpVozilo.DataSource = vozila.ToList();
+                VoziloService vs = new VoziloService();
+                IEnumerable<Vozilo> vozila = vs.GetAll();
+                lkpVozilo.DataSource = vozila.ToList();
             }
         }
 
@@ -108,6 +111,7 @@ namespace CarRental.Forms
                 frmDokumentEdit fK = new frmDokumentEdit();
                 fK.Renta = TrenutniRenta; 
                 fK.ShowDialog();
+                LoadData(TrenutniRenta.ID);
             }
         }
 
@@ -116,6 +120,7 @@ namespace CarRental.Forms
             frmDokumentEdit fK = new frmDokumentEdit();
             fK.Renta = rs.VratiNovuRentu();
             fK.ShowDialog();
+            LoadData(fK.Renta.ID);
         }
 
         private void bbiRefresh_ItemClick(object sender, ItemClickEventArgs e)
@@ -158,6 +163,35 @@ namespace CarRental.Forms
         {
             openFileDialog1.ShowDialog();
             gridView.RestoreLayoutFromXml(openFileDialog1.FileName);
+        }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ////stampa dokumenta
+            //rptUgovor r = new rptUgovor();
+
+            //string dir = System.IO.Path.Combine(Application.StartupPath, "Ugovori");
+            //System.IO.Directory.CreateDirectory(dir);
+
+            var sourceTemplateDocx = @"..\..\Template.docx";
+            var destDocx = string.Format(@"..\..\{0}.docx", TrenutniRenta.Broj);
+            var docGen = new SharpDocGen();
+
+            //Can run using an ObjectDataWrapper for Entity Framework
+            docGen.GenerateDocument(sourceTemplateDocx, destDocx, new ObjectDataWrapper(GetObjectWtihValues()));
+
+            //string doc = System.IO.Path.Combine(dir, destDocx);
+            //System.IO.File.Create(destDocx);
+            //Can run using an ADO.NET wrapper for a DataTable
+            //docGen.GenerateDocument(sourceTemplateDocx, destDocx, new ADONETDataWrapper(GetDataTable()));
+
+            System.Diagnostics.Process.Start(destDocx);
+        }
+
+        private vUgovor GetObjectWtihValues()
+        {
+            vUgovor vR = rs.GetUgovor(TrenutniRenta.ID);
+            return vR;
         }
     }
 }

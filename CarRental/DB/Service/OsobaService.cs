@@ -74,7 +74,7 @@ namespace CarRental.DB.Service
         {
             try
             {
-                return (decimal)_db.ExecuteScalar(string.Format("SELECT SUM([RatingKupca])/COUNT(ID) FROM [Renta] WHERE IsRazduzen = 1 and OsobaID = {0}", Id));
+                return (decimal)_db.ExecuteScalar(string.Format("SELECT SUM([RatingKupca])/COUNT(ID) FROM [Renta] WHERE /*IsRazduzen = 1 and*/ OsobaID = {0}", Id));
             }
             catch (Exception)
             {

@@ -56,9 +56,10 @@ tables["Appointments"].ClassName = "Appointments";
 
 #>
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+//using System.ComponentModel.DataAnnotations;
+//using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
+using Dapper.Contrib.Extensions;
 
 namespace <#=Namespace #>
 {
@@ -76,6 +77,9 @@ foreach(Table tbl in from t in tables where !t.Ignore select t){
 {#>
 	<# if (tbl.PK!=null && tbl.PK.Name==col.PropertyName) { #>
 	[Key]
+	<#}#>
+	<# if (tbl.Name=="vRenta" && col.PropertyName=="ID") { #>
+	[ExplicitKey]
 	<#}#>
 	public virtual <#=col.PropertyType #><#=CheckNullable(col)#> <#=col.PropertyName #> { get; set; }
 <#}#>

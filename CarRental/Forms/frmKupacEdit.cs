@@ -33,6 +33,9 @@ namespace CarRental.Forms
                 MjestoService ms = new MjestoService();
                 IEnumerable<Mjesto> mj = ms.GetAll();
                 lkpMjestoStan.Properties.DataSource = mj.ToList();
+
+                RentaService rs = new RentaService();
+                gridControl1.DataSource = rs.GetAllByVozac(Osoba.ID).ToList();
             }
         }
 
