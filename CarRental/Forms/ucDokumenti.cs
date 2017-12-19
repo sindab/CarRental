@@ -13,7 +13,7 @@ using System.ComponentModel.DataAnnotations;
 using CarRental.DB.Models;
 using CarRental.DB.Service;
 using Microsoft.Win32;
-using CarRental.Reports;
+//using CarRental.Reports;
 using SharpGen.DataWrappers;
 using SharpGen;
 
@@ -170,11 +170,15 @@ namespace CarRental.Forms
             ////stampa dokumenta
             //rptUgovor r = new rptUgovor();
 
-            //string dir = System.IO.Path.Combine(Application.StartupPath, "Ugovori");
-            //System.IO.Directory.CreateDirectory(dir);
+            string dirUg = System.IO.Path.Combine(Application.StartupPath, "Ugovori");
+            System.IO.Directory.CreateDirectory(dirUg);
 
-            var sourceTemplateDocx = @"..\..\Template.docx";
-            var destDocx = string.Format(@"..\..\{0}.docx", TrenutniRenta.Broj);
+            //var sourceTemplateDocx = @"..\..\Template.docx";
+            //var destDocx = string.Format(@"..\..\Ugovor{0}.docx", TrenutniRenta.Broj);
+
+            var sourceTemplateDocx = System.IO.Path.Combine(Application.StartupPath, "Template.docx");
+            var destDocx = System.IO.Path.Combine(dirUg, string.Format("Ugovor{0}.docx", TrenutniRenta.Broj));
+
             var docGen = new SharpDocGen();
 
             //Can run using an ObjectDataWrapper for Entity Framework

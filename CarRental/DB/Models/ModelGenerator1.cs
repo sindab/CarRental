@@ -290,11 +290,27 @@ namespace CarRental.DB.Models
 			public virtual string Prezime { get; set; }
 			public virtual string Ime { get; set; }
 			public virtual string TelefonMob { get; set; }
+			public virtual string Adresa { get; set; }
+			public virtual string Grad { get; set; }
+			public virtual string Drzava { get; set; }
+			public virtual string BrLK { get; set; }
+			public virtual string BrPasos { get; set; }
+			public virtual string BrVozacka { get; set; }
 			public virtual decimal Rating { get; set; }
+			public virtual string JMBG2 { get; set; }
 			public virtual string Prezime2 { get; set; }
 			public virtual string Ime2 { get; set; }
+			public virtual string TelefonMob2 { get; set; }
+			public virtual string Adresa2 { get; set; }
+			public virtual string Grad2 { get; set; }
+			public virtual string Drzava2 { get; set; }
+			public virtual string BrLK2 { get; set; }
+			public virtual string BrPasos2 { get; set; }
+			public virtual string BrVozacka2 { get; set; }
 			public virtual string RegBr { get; set; }
 			public virtual string Marka { get; set; }
+			public virtual string Tip { get; set; }
+			public virtual string Oblik { get; set; }
 			public virtual string Boja { get; set; }
 			public virtual string BrMotora { get; set; }
 			public virtual string Sasija { get; set; }

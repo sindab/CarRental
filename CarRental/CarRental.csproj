@@ -167,12 +167,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\rptUgovor.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\rptUgovor.Designer.cs">
-      <DependentUpon>rptUgovor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sifarnici\frmLokacijaEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,9 +307,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\rptUgovor.resx">
-      <DependentUpon>rptUgovor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sifarnici\frmLokacijaEdit.resx">
       <DependentUpon>frmLokacijaEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -373,10 +364,9 @@
     <EmbeddedResource Include="Forms\ucSifarnici.resx">
       <DependentUpon>ucSifarnici.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="DB\script.sql" />
     <Content Include="men.png" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Kadrovska_sluzba.DB.Models.Appointment.datasource" />
-    <None Include="Properties\DataSources\Kadrovska_sluzba.DB.Models.Resource.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

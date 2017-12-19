@@ -1,48 +1,64 @@
 ﻿Vrijednosti koje mozete da koristite u Template.docx
 
-<!Datum!>						Datum ugovora
-<!Broj!>						Broj ugovora
-<!JMBG!>						Maticni broj kupca, JMBG
-<!Prezime!>						Prezime kupca
-<!Ime!>							Ime kupca
-<!TelefonMob!>					Kontakt telefon kupca
-<!Prezime2!>					Prezime drugog vozaca
-<!Ime2!>						Ime drugog vozaca
-<!RegBr!>						Registarski broj iznajmljenog vozila
-<!Marka!>						Marka iznajmljenog vozila
-<!Boja!>						Boja iznajmljenog vozila
-<!BrMotora!>					Broj motora iznajmljenog vozila
-<!Sasija!>						Broj sasije iznajmljenog vozila
-<!Godiste!>						Godina proizvodnje iznajmljenog vozila
-<!TipMotora!>					Tip motora iznajmljenog vozila
-<!DatumReg!>					Datum zadnje registracije iznajmljenog vozila
-<!BrojSjedista!>				Broj sjedista iznajmljenog vozila
-<!BrojVrata!>					Broj vrata iznajmljenog vozila
-<!Nosivost!>					Nosivost iznajmljenog vozila
-<!Snaga!>						Snaga motora iznajmljenog vozila
-<!StanjeBrojilaStart!>			Stanje brojila na startu
-<!StanjeBrojilaKraj!>			Stanje brojila na kraju
-<!PredjeniKM!>					Razlika stanja brojila
-<!StanjeGorivoStart!>			Stanje goriva na startu
-<!StanjeGorivoKraj!>			Stanje goriva na kraju
-<!RazlikaGorivo!>				Razlika goriva
-<!DatumOd!>						Datum pocetka najma
-<!DatumDo!>						Najam traje do
-<!DatumRazduzen!>				Datum vracanja vozila
-<!Zaduzen!>						Da li je kupac preuzeo vozilo (DA, NE)
-<!Razduzen!>					Da li je kupac vratio vozilo (DA, NE)
-<!Produzen!>					Da li je najam produzen (DA, NE)
-<!DatumProduzenDo!>				Ako je produzen, do kada
-<!OpisZaduzen!>					Opis kod ugovaranja najma
-<!OpisRazduzen!>				Opis kod vracanja vozila sa najma
-<!LokacijaPreuzimanje!>			Lokacija gdje je vozilo preuzeto
-<!LokacijaZaPovrat!>			Lokacija gdje bi kupac trebao vratiti vozilo
-<!LokacijaVraceno!>				Lokacija gdje je vozilo vraceno
-<!Dana!>						Trajanje najma u danima
-<!Depozit!>						Uplaceni depozit
-<!Cijena!>						Cijena najma vozila po danu
-<!Rabat!>						Odobreni popust
-<!PDV!>							Procenat poreza
-<!Iznos!>						Iznos najma (cijena * dana - rabat + pdv)
-<!Naplata!>						Iznos za naplatu kod razduzenja (iznos - depozit)
-<!Placeno!>						Da li je placeno (DA, NE)
+<!Datum!>				Datum ugovora
+<!Broj!>				Broj ugovora
+<!JMBG!>				Maticni broj kupca, JMBG
+<!Prezime!>				Prezime kupca
+<!Ime!>					Ime kupca
+<!TelefonMob!>			Kontakt telefon kupca
+<!Adresa!>				Adresa kupca
+<!Grad!>				Grad kupca
+<!Drzava!>				Drzava kupca
+<!BrLK!>				Licna karta kupca
+<!BrPasos!>				Pasos kupca
+<!BrVozacka!>			Vozacka dozvola kupca
+<!JMBG2!>				Maticni broj drugog vozaca, JMBG
+<!Prezime2!>			Prezime drugog vozaca
+<!Ime2!>				Ime drugog vozaca
+<!TelefonMob2!>			Kontakt telefon drugog vozaca
+<!Adresa2!>				Adresa drugog vozaca
+<!Grad2!>				Grad drugog vozaca
+<!Drzava2!>				Drzava drugog vozaca
+<!BrLK2!>				Licna karta drugog vozaca
+<!BrPasos2!>			Pasos drugog vozaca
+<!BrVozacka2!>			Vozacka dozvola drugog vozaca
+<!RegBr!>				Registarski broj iznajmljenog vozila
+<!Marka!>				Marka iznajmljenog vozila
+<!Tip!>					Tip iznajmljenog vozila
+<!Oblik!>				Oblik iznajmljenog vozila
+<!Boja!>				Boja iznajmljenog vozila
+<!BrMotora!>			Broj motora iznajmljenog vozila
+<!Sasija!>				Broj sasije iznajmljenog vozila
+<!Godiste!>				Godina proizvodnje iznajmljenog vozila
+<!TipMotora!>			Tip motora iznajmljenog vozila
+<!DatumReg!>			Datum zadnje registracije iznajmljenog vozila
+<!BrojSjedista!>		Broj sjedista iznajmljenog vozila
+<!BrojVrata!>			Broj vrata iznajmljenog vozila
+<!Nosivost!>			Nosivost iznajmljenog vozila
+<!Snaga!>				Snaga motora iznajmljenog vozila
+<!StanjeBrojilaStart!>	Stanje brojila na startu
+<!StanjeBrojilaKraj!>	Stanje brojila na kraju
+<!PredjeniKM!>			Razlika stanja brojila
+<!StanjeGorivoStart!>	Stanje goriva na startu
+<!StanjeGorivoKraj!>	Stanje goriva na kraju
+<!RazlikaGorivo!>		Razlika goriva
+<!DatumOd!>				Datum pocetka najma
+<!DatumDo!>				Najam traje do
+<!DatumRazduzen!>		Datum vracanja vozila
+<!Zaduzen!>				Da li je kupac preuzeo vozilo (DA, NE)
+<!Razduzen!>			Da li je kupac vratio vozilo (DA, NE)
+<!Produzen!>			Da li je najam produzen (DA, NE)
+<!DatumProduzenDo!>		Ako je produzen, do kada
+<!OpisZaduzen!>			Opis kod ugovaranja najma
+<!OpisRazduzen!>		Opis kod vracanja vozila sa najma
+<!LokacijaPreuzimanje!>	Lokacija gdje je vozilo preuzeto
+<!LokacijaZaPovrat!>	Lokacija gdje bi kupac trebao vratiti vozilo
+<!LokacijaVraceno!>		Lokacija gdje je vozilo vraceno
+<!Dana!>				Trajanje najma u danima
+<!Depozit!>				Uplaceni depozit
+<!Cijena!>				Cijena najma vozila po danu
+<!Rabat!>				Odobreni popust
+<!PDV!>					Procenat poreza
+<!Iznos!>				Iznos najma (cijena * dana - rabat + pdv)
+<!Naplata!>				Iznos za naplatu kod razduzenja (iznos - depozit)
+<!Placeno!>				Da li je placeno (DA, NE)
